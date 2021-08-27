@@ -1,7 +1,7 @@
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import cors from "cors";
-import { compiledSchema } from "./schema/schema";
+import { schema } from "./schema/schema";
 import knex from "knex";
 import knexfile from "./knexfile";
 import { Model } from "objection";
@@ -15,7 +15,7 @@ Model.knex(knex(knexfile.development));
 app.use(
   "/graphql",
   graphqlHTTP({
-    schema: compiledSchema,
+    schema: schema,
     graphiql: true,
   })
 );

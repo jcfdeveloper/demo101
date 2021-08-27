@@ -22,4 +22,4 @@ class Schema {
   }
 }
 
-export const compiledSchema = compileSchema(Schema);
+export const schema = compileSchema(Schema);
