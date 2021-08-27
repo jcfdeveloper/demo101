@@ -35,7 +35,6 @@ class Schema {
   @Query({ castTo: [Movie] })
   async find() {
     const movies = await Movie.query();
-    console.log(movies);
     return movies;
   }
 
