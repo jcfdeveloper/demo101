@@ -1,4 +1,6 @@
-exports.seed = async function (knex) {
+import Knex from "knex";
+
+export const seed = async (knex: Knex) => {
   // Deletes ALL existing entries
   await knex.raw("TRUNCATE TABLE movies");
   await knex.raw("TRUNCATE TABLE directors");

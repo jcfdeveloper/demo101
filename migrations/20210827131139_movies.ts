@@ -1,4 +1,6 @@
-exports.up = function (knex) {
+import Knex from "knex";
+
+export const up = (knex: Knex) => {
   return knex.schema.createTable("movies", (table) => {
     table.increments("id").primary();
     table.string("name").notNullable();
@@ -7,6 +9,6 @@ exports.up = function (knex) {
   });
 };
 
-exports.down = function (knex) {
+export const down = (knex: Knex) => {
   return knex.schema.dropTableIfExists("movies");
 };

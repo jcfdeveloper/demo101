@@ -1,7 +1,7 @@
 // Update with your config settings.
-const { knexSnakeCaseMappers } = require("objection");
+import { knexSnakeCaseMappers } from "objection";
 
-module.exports = {
+export default {
   development: {
     client: "mysql",
     version: "8.0.23",
