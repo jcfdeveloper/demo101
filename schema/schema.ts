@@ -1,12 +1,19 @@
 import { SchemaRoot, Mutation, compileSchema, Arg, Query } from "decapi";
+import { Director } from "../models/director";
 import { Movie } from "../models/movie";
 
 @SchemaRoot()
 class Schema {
   @Query({ castTo: [Movie] })
-  async find() {
+  async movies() {
     const movies = await Movie.query();
     return movies;
+  }
+
+  @Query({ castTo: [Director] })
+  async directors() {
+    const directors = await Director.query();
+    return directors;
   }
 
   @Mutation({ type: Movie })
