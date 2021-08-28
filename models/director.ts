@@ -21,11 +21,9 @@ export class Director extends Model {
   created_at: Date;
 
   @Field({ type: [Movie] })
-  movies = async () => {
-    return await Movie.query().where("director_id", this.id);
-  };
+  movies = async () => await Movie.query().where("director_id", this.id);
 
-  static movies = {
+  static relationshipMapping = {
     movies: {
       relation: Model.HasManyRelation,
       modelClass: () => Movie,
@@ -35,4 +33,5 @@ export class Director extends Model {
       },
     },
   };
+  
 }
